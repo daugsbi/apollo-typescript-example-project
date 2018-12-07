@@ -1,7 +1,10 @@
 import React from "react";
 import { Query } from "react-apollo";
 import gql from "graphql-tag";
-import { ListIssuesOfRepository } from "./__generated__/ListIssuesOfRepository";
+import {
+  ListIssuesOfRepository,
+  ListIssuesOfRepositoryVariables
+} from "./__generated__/ListIssuesOfRepository";
 
 type Props = {
   owner: string;
@@ -9,8 +12,8 @@ type Props = {
 };
 
 const LIST_ISSUES = gql`
-  query ListIssuesOfRepository {
-    repository(owner: "microsoft", name: "typescript") {
+  query ListIssuesOfRepository($owner: String!, $name: String!) {
+    repository(owner: $owner, name: $name) {
       issues(last: 100) {
         edges {
           node {
@@ -31,7 +34,10 @@ const LIST_ISSUES = gql`
   }
 `;
 
-class ListIssuesQuery extends Query<ListIssuesOfRepository> {}
+class ListIssuesQuery extends Query<
+  ListIssuesOfRepository,
+  ListIssuesOfRepositoryVariables
+> {}
 
 const ListIssues: React.SFC<Props> = props => (
   <ListIssuesQuery
