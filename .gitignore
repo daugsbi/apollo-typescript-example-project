@@ -23,3 +23,6 @@ yarn-debug.log*
 yarn-error.log*
 
 __generated__*
+# has credentials inside, update manually
+/src/config.ts 
+/apollo.config.js
