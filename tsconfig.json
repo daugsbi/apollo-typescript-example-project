@@ -13,7 +13,8 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "preserve",
-    "lib": ["es2015", "esnext.asynciterable", "dom"]
+    "lib": ["es2015", "esnext.asynciterable", "es2015.generator", "dom"]
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["apollo.config.js"]
 }
