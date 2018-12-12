@@ -21,7 +21,10 @@ export class AddCommentButton extends React.Component<Props, TextState> {
     return (
       <React.Fragment>
         <h1>Mutation to add a comment on issue</h1>
-        <a href="https://github.com/daugsbi/apollo-typescript-example-project/issues/1">
+        <a
+          target="_blank"
+          href="https://github.com/daugsbi/apollo-typescript-example-project/issues/1"
+        >
           Link to issue
         </a>
         <label htmlFor="comment-input">Comment text:</label>
