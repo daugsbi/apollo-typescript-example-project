@@ -3,6 +3,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import ListIssues from "./components/ListIssues";
 import { AddCommentButton } from "./components/AddCommentButton";
+import ListComments from "./components/ListComments";
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
         </header>
         <ListIssues owner="apollographql" project="react-apollo" />
         <AddCommentButton subjectId="MDU6SXNzdWUzODg2NzU5MzA=" />
+        <ListComments />
       </div>
     );
   }
