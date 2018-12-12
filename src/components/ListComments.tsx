@@ -5,7 +5,7 @@ import { ListCommentsOfIssue } from "./__generated__/ListCommentsOfIssue";
 
 type Props = {};
 
-const LIST_COMMENTS = gql`
+export const LIST_COMMENTS = gql`
   query ListCommentsOfIssue {
     repository(owner: "daugsbi", name: "apollo-typescript-example-project") {
       issue(number: 1) {
@@ -43,6 +43,7 @@ const ListComments: React.SFC<Props> = props => (
       ) {
         return (
           <React.Fragment>
+            <h1>List of added comments in issue</h1>
             {data.repository.issue.comments.nodes.map(comments => {
               if (comments) {
                 return (

@@ -14,7 +14,7 @@ type Props = {
 const LIST_ISSUES = gql`
   query ListIssuesOfRepository($owner: String!, $name: String!) {
     repository(owner: $owner, name: $name) {
-      issues(last: 100) {
+      issues(last: 20) {
         edges {
           node {
             createdAt
@@ -52,12 +52,18 @@ const ListIssues: React.SFC<Props> = props => (
       if (data && data.repository && data.repository.issues.edges) {
         return (
           <React.Fragment>
+            <h1>
+              Last issues of repository {props.owner}/{props.project}
+            </h1>
             {data.repository.issues.edges.map(edge => {
               if (edge && edge.node) {
                 return (
                   <React.Fragment>
-                    <h1>{edge.node.title}</h1>
-                    <p>Created at: {edge.node.createdAt}</p>
+                    <p>
+                      <b>{edge.node.title}</b>
+                      <br />
+                      Created at: {edge.node.createdAt}
+                    </p>
                   </React.Fragment>
                 );
               }

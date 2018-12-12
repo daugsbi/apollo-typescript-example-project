@@ -21,7 +21,9 @@ const client = new ApolloClient({
       authorization: `Bearer ${config.githubToken}`
     }
   }),
-  cache: new InMemoryCache()
+  cache: new InMemoryCache({
+    dataIdFromObject: o => o.id
+  })
 });
 
 ReactDOM.render(

@@ -10,7 +10,10 @@ export const addComment = gql`
       commentEdge {
         node {
           id
-          body
+          bodyText
+          author {
+            login
+          }
         }
       }
     }
