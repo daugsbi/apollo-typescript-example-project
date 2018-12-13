@@ -9,7 +9,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ListIssues owner="facebook" project="react" />
+        <ListIssues owner="microsoft" project="typescript" />
         <AddCommentButton subjectId="MDU6SXNzdWUzODg2NzU5MzA=" />
         <ListComments />
       </div>

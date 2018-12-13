@@ -11,7 +11,7 @@ export const LIST_COMMENTS = gql`
       issue(number: 1) {
         comments(last: 10) {
           nodes {
-            id
+            key: id
             author {
               login
             }
@@ -28,7 +28,7 @@ class ListCommentsQuery extends Query<ListCommentsOfIssue> {}
   /* pollInterval={5000} */
 }
 const ListComments: React.SFC<Props> = props => (
-  <ListCommentsQuery query={LIST_COMMENTS}>
+  <ListCommentsQuery query={LIST_COMMENTS} pollInterval={5000}>
     {({ loading, error, data }) => {
       if (loading) return <p>loading...</p>;
 
@@ -47,7 +47,7 @@ const ListComments: React.SFC<Props> = props => (
             {data.repository.issue.comments.nodes.map(comments => {
               if (comments) {
                 return (
-                  <React.Fragment key={comments.id}>
+                  <React.Fragment key={comments.key}>
                     <p>
                       Message: <b>{comments.bodyText}</b> <br />
                       From: {comments.author && comments.author.login}
