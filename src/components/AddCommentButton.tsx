@@ -24,6 +24,7 @@ export class AddCommentButton extends React.Component<Props, TextState> {
         <a
           target="_blank"
           href="https://github.com/daugsbi/apollo-typescript-example-project/issues/1"
+          rel="noopener noreferrer"
         >
           Link to issue
         </a>
